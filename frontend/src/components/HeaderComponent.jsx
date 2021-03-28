@@ -33,22 +33,23 @@ function HeaderComponent(props) {
               <DropdownToggle nav caret>
                 USERNAME
               </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">PROFILE</NavLink>
+              <DropdownMenu className="my-" right>
+                <DropdownItem className="my-0 ml-0 pl-3">
+                  <NavLink activeClassName="active" className="py-1 nav-link comp-nav mx-1" to="/user/contests">Profile</NavLink>
                 </DropdownItem>
-                <DropdownItem>
-                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">COINS</NavLink>
+                <DropdownItem className="my-0 ml-0 pl-3">
+                  <NavLink activeClassName="active" className="py-1 nav-link comp-nav mx-1" to="/user/contests">Coins</NavLink>
                 </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">LOGOUT</NavLink>
+                <DropdownItem className="my-0 ml-0 pl-3" divider />
+                <DropdownItem className="my-0 ml-0 pl-3">
+                  <NavLink activeClassName="active" className="py-1 nav-link comp-nav mx-1" to="/user/contests">Logout</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
         </Collapse>
       </Navbar>
+
     </>
   );
 }

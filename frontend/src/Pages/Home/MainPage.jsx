@@ -14,7 +14,7 @@ class MainPage extends Component {
     return (
       <>
         <HeaderComponent/>
-        <button onClick={() => {auth.logout(() => {this.props.history.push("/");});}}>Logout </button><hr />
+        {/* <button onClick={() => {auth.logout(() => {this.props.history.push("/");});}}>Logout </button><hr /> */}
         <Switch>
           {/* <ProtectedRoute path="/user" exact component={Contests} /> */}
           <ProtectedRoute path="/user/contests" exact component={Contests} />
