@@ -3,7 +3,17 @@ class ProblemList extends Component {
   state = {}
   render() {
     return (
-      <h3 className="text-dark">ProblemList Page</h3>
+      <>
+        <div className="jumbotron" style={{ height: "250px" }}>
+          <div className="container">
+            <h1>Practice</h1>
+          </div>
+        </div>
+        <div className="container">
+          <br />
+
+        </div>
+      </>
     );
   }
 }
