@@ -125,7 +125,7 @@ export default Watch(
             });
           }
           else {
-            this.setState({ loginError : "Invalid username or password!!" });
+            this.setState({ loginError: "Invalid login details!!" });
           }
         } catch (err) {
           this.setState({ loginError: "Error : Please, try again later!!" });
@@ -147,7 +147,7 @@ export default Watch(
             this.setState({ signUpError: res.data.msg });
           }
         } catch (err) {
-          this.setState({ signUpError: "Error : Please, try again later!!" });
+          this.setState({ signUpError: "Please, try again later!!" });
         }
       };
       sendPostRequest();

@@ -1,0 +1,56 @@
+import React,{useState} from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
+import auth from "../Pages/LandingandLogin/auth";
+import { Link,NavLink } from "react-router-dom";
+import "./css/compStyle.css";
+function HeaderComponent(props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+  return (
+    <>
+      <Navbar  dark expand="md" style={{ color:"white",backgroundColor:"#402dfb"}}>
+        <NavbarBrand className="ml-md-5" href="/">
+          <h3 className="m-0 pt-0 pb-0 ml-3 font-weight-bold"><a >O<span style={{color:"#F0C017"}}>z</span>one</a></h3>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse className="ml-md-5" isOpen={isOpen} navbar>
+          <Nav className="mr-auto d-flex align-items-center" navbar>
+            <NavItem>
+              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/problems">PRACTICE</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">COMPETE</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/store">STORE</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/leaderboard">LEADERBORAD</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="ml-md-auto mr-md-5 d-flex justify-content-center">
+            <UncontrolledDropdown nav>
+              <DropdownToggle nav caret>
+                USERNAME
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">PROFILE</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">COINS</NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">LOGOUT</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </>
+  );
+}
+
+export default HeaderComponent;
