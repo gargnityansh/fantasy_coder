@@ -8,7 +8,7 @@ function HeaderComponent(props) {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <>
-      <Navbar  dark expand="md" style={{ color:"white",backgroundColor:"#402dfb"}}>
+      <Navbar className="font-head" dark expand="md" style={{ color:"white",backgroundColor:"#402dfb"}}>
         <NavbarBrand className="ml-md-5" href="/">
           <h3 className="m-0 pt-0 pb-0 ml-3 font-weight-bold"><a >O<span style={{color:"#F0C017"}}>z</span>one</a></h3>
         </NavbarBrand>

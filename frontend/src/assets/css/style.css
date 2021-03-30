@@ -3,12 +3,12 @@ body {
   color: #444444;
 }
 
-a {
+/* a {
   color: #fff;
-}
+} */
 
 a:hover {
-  color: #fff;
+  /* color: #fff; */
   text-decoration: none;
 }
 

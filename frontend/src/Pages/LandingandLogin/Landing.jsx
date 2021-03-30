@@ -259,7 +259,6 @@ export default Watch(
                       <p className="forgot-password text-right">
                         <a href="#">Forgot password?</a>
                       </p>
-                      
                     </Form>
                   </TabPane>
                   <TabPane tabId="2">
