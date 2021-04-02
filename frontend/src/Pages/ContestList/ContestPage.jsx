@@ -46,9 +46,9 @@ function RenderCards({ contest }) {
 const Contests = (props) => {
   const [activeTab, setActiveTab] = useState('1');
 
-  const toggle = tab => {
-    if (activeTab !== tab) setActiveTab(tab);
-  }
+  const toggle = tab => { if (activeTab !== tab) setActiveTab(tab); }
+
+  // Rendering Live contests
   const live = CONTESTS.filter((contest) =>
     ((new Date(contest.start_time)).getTime() < (new Date()).getTime()) && ((new Date(contest.end_time)).getTime() > (new Date()).getTime())
   ).map((contest) => {
@@ -58,6 +58,8 @@ const Contests = (props) => {
       </div>
     );
   });
+
+  // Rendering Upcoming contests
   const upcomming = CONTESTS.filter((contest) =>
     (new Date(contest.start_time)).getTime() > (new Date()).getTime()
   ).map((contest) => {
@@ -67,6 +69,8 @@ const Contests = (props) => {
       </div>
     );
   });
+
+  // Rendering previous contests
   const previous = CONTESTS.filter((contest) =>
     (new Date(contest.end_time)).getTime() < (new Date()).getTime()
   ).map((contest) => {
@@ -80,7 +84,8 @@ const Contests = (props) => {
   return (
     <>
       <HeaderComponent />
-      <div className="jumbotron" style={{ height: "250px" }}>
+      
+      <div className="jumbotron" style={{ height: "300px" }}>
         <div className="container">
           <h1>Contests & <br /> Programming Challenges</h1>
         </div>
