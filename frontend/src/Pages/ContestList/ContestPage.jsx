@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Nav, NavItem, TabContent, TabPane, NavLink, Col, Row } from 'reactstrap';
 import { Link } from "react-router-dom";
+import HeaderComponent from '../../components/HeaderComponent';
+import FooterComponent from '../../components/FooterComponent';
 const CONTESTS =
   [
     {
@@ -47,7 +49,7 @@ const Contests = (props) => {
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
-  const live = CONTESTS.filter((contest) => 
+  const live = CONTESTS.filter((contest) =>
     ((new Date(contest.start_time)).getTime() < (new Date()).getTime()) && ((new Date(contest.end_time)).getTime() > (new Date()).getTime())
   ).map((contest) => {
     return (
@@ -56,7 +58,7 @@ const Contests = (props) => {
       </div>
     );
   });
-  const upcomming = CONTESTS.filter((contest) => 
+  const upcomming = CONTESTS.filter((contest) =>
     (new Date(contest.start_time)).getTime() > (new Date()).getTime()
   ).map((contest) => {
     return (
@@ -65,7 +67,7 @@ const Contests = (props) => {
       </div>
     );
   });
-  const previous = CONTESTS.filter((contest) => 
+  const previous = CONTESTS.filter((contest) =>
     (new Date(contest.end_time)).getTime() < (new Date()).getTime()
   ).map((contest) => {
     return (
@@ -77,6 +79,7 @@ const Contests = (props) => {
 
   return (
     <>
+      <HeaderComponent />
       <div className="jumbotron" style={{ height: "250px" }}>
         <div className="container">
           <h1>Contests & <br /> Programming Challenges</h1>
@@ -121,7 +124,7 @@ const Contests = (props) => {
             </TabPane>
             <TabPane tabId="3">
               <Row>
-                  {previous}
+                {previous}
               </Row>
             </TabPane>
           </TabContent>
@@ -155,6 +158,7 @@ const Contests = (props) => {
             </TabPane>
           </TabContent> */}
       </div>
+      <FooterComponent />
     </>
   );
 }

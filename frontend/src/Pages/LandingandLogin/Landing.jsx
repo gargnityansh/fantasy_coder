@@ -121,7 +121,7 @@ export default Watch(
           const res = await axios.post(`http://104.211.91.225:5000/login`, loginData);
           if (res.data.status === 200) {
             auth.login(() => {
-              this.props.history.push("/");
+              this.props.history.push("/contests");
             });
           }
           else {
@@ -141,7 +141,7 @@ export default Watch(
         try {
           const res = await axios.post(`http://104.211.91.225:5000/register`, signUpData);
           if (res.data.status === 200) {
-            this.props.history.push("/");
+            this.props.history.push("/contests");
           }
           else {
             this.setState({ signUpError: res.data.msg });

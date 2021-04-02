@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Uncontrolle
 import auth from "../Pages/LandingandLogin/auth";
 import { Link,NavLink } from "react-router-dom";
 import "./css/compStyle.css";
+
 function HeaderComponent(props) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
