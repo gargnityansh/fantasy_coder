@@ -19,7 +19,7 @@ function HeaderComponent(props) {
               <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/problems">PRACTICE</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">COMPETE</NavLink>
+              <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/contests">CONTESTS</NavLink>
             </NavItem>
             <NavItem>
               <NavLink activeClassName="active" className="nav-link comp-nav mx-1" to="/user/store">STORE</NavLink>

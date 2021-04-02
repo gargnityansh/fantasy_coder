@@ -90,14 +90,14 @@ const Contests = (props) => {
               <NavLink
                 className={activeTab == '1' ? 'active' : ''}
                 onClick={() => { toggle('1'); }}>
-                UPCOMMING
+                LIVE
               </NavLink>
             </NavItem>
             <NavItem className="col-4 text-center px-0">
               <NavLink
                 className={activeTab == '2' ? 'active' : ''}
                 onClick={() => { toggle('2'); }}>
-                LIVE
+                UPCOMMING
               </NavLink>
             </NavItem>
             <NavItem className="col-4 text-center px-0">
@@ -111,12 +111,12 @@ const Contests = (props) => {
           <TabContent activeTab={activeTab}>
             <TabPane tabId="1">
               <Row>
-                  {upcomming}
+                {live}
               </Row>
             </TabPane>
             <TabPane tabId="2">
               <Row>
-                  {live}
+                {upcomming}
               </Row>
             </TabPane>
             <TabPane tabId="3">
