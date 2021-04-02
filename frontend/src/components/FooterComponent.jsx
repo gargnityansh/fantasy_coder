@@ -21,22 +21,22 @@ function FooterComponent(props){
               <ul>
                 <li className="pb-0"><i className="bx bx-chevron-right"></i>
                   <a href="">
-                    <NavLink to="/user/problems">Practice</NavLink>
+                    <NavLink to="/problems">Practice</NavLink>
                   </a>
                 </li>
                 <li className="pb-0"><i className="bx bx-chevron-right"></i>
                   <a href="">
-                    <NavLink to="/user/contests">Compete</NavLink>
+                    <NavLink to="/contests">Compete</NavLink>
                   </a>
                 </li>
                 <li className="pb-0"><i className="bx bx-chevron-right"></i>
                   <a href="">
-                    <NavLink to="/user/store">Store</NavLink>
+                    <NavLink to="/store">Store</NavLink>
                   </a>
                 </li>
                 <li className="pb-0"><i className="bx bx-chevron-right"></i>
                   <a href="">
-                    <NavLink to="/user/leaderboard">Leaderboard</NavLink>
+                    <NavLink to="/leaderboard">Leaderboard</NavLink>
                   </a>
                 </li>
               </ul>

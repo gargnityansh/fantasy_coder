@@ -10,8 +10,8 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <ProtectedRoute path="/user" component={MainPage} />
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/login" component={Landing} />
+        <ProtectedRoute path="/" component={MainPage} />
       </Switch>
     );
   }
