@@ -30,15 +30,12 @@ function HeaderComponent(props) {
           </Nav>
           <Nav className="ml-md-auto mr-md-5 d-flex justify-content-center">
             <UncontrolledDropdown nav>
-              <DropdownToggle nav caret>
+              <DropdownToggle nav caret className="text-white">
                 USERNAME
               </DropdownToggle>
               <DropdownMenu className="my-" right>
                 <DropdownItem className="my-0 ml-0 pl-3">
                   <NavLink activeClassName="active" className="py-1 nav-link comp-nav mx-1" to="/user/contests">Profile</NavLink>
-                </DropdownItem>
-                <DropdownItem className="my-0 ml-0 pl-3">
-                  <NavLink activeClassName="active" className="py-1 nav-link comp-nav mx-1" to="/user/contests">Coins</NavLink>
                 </DropdownItem>
                 <DropdownItem className="my-0 ml-0 pl-3" divider />
                 <DropdownItem className="my-0 ml-0 pl-3">
