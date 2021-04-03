@@ -3,6 +3,7 @@ import { Nav, NavItem, Modal, ModalBody, NavLink, TabContent, TabPane, Form, For
 import axios from 'axios';
 import auth from "./auth";
 import { withRouter } from 'react-router-dom';
+
 class LoginModal extends Component {
   constructor(props) {
     super(props);
@@ -104,6 +105,7 @@ class LoginModal extends Component {
         if (res.data.status === 200) {
           auth.login(() => {
             this.props.history.push("/contests");
+            this.props.toggleModal();
           });
         }
         else {
