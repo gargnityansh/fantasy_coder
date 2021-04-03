@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
-import auth from "../Pages/LandingandLogin/auth";
+import auth from "./auth";
 import { Link,NavLink } from "react-router-dom";
 import "./css/compStyle.css";
 

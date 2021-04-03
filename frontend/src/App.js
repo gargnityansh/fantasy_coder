@@ -10,15 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
   render() {
     return (
       <Switch>
         <Route exact path="/" component={Landing} />
-        <ProtectedRoute path="/contests" exact component={Contests} />
-        <ProtectedRoute path="/problems" exact component={Problemlist} />
+        <Route path="/contests" exact component={Contests} />
+        <Route path="/problems" exact component={Problemlist} />
         <Redirect to="/contests" />
       </Switch>
     );
