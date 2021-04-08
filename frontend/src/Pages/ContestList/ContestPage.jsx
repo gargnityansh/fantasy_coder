@@ -1,6 +1,9 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Nav, NavItem, TabContent, TabPane, NavLink, Col, Row } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Nav, NavItem, TabContent, TabPane, NavLink, Row } from 'reactstrap';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import LoginModal from '../../components/LoginModal';
+import auth from "../../components/auth";
 import HeaderComponent from '../../components/HeaderComponent';
 import FooterComponent from '../../components/FooterComponent';
 const CONTESTS =
@@ -27,51 +30,59 @@ const CONTESTS =
       contest_img: '/assets/img/logoName.jpeg'
     }
   ];
-function RenderCards({ contest }) {
+function RenderCards(props) {
   return (
     <div className="">
       <Card>
-        <CardImg top width="100%" src={contest.contest_img} alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h5">{contest.contest_name}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted"><b>Start Time: </b>{contest.start_time}</CardSubtitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted"><b>End Time   : </b>{contest.end_time}</CardSubtitle>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+        <a className="contest-card-link" onClick={() => {props.onClick(props.contest.contest_id)}}>
+          <CardImg top width="100%" src={props.contest.contest_img} alt="Card image cap" />
+          <CardBody>
+            <CardTitle tag="h5">{props.contest.contest_name}</CardTitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>Start Time: </b>{props.contest.start_time}</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>End Time   : </b>{props.contest.end_time}</CardSubtitle>
+            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+            <Button>Button</Button>
+          </CardBody>
+        </a>
       </Card>
     </div>
   );
 }
+
 class Contests extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: '1',
-      contests:[]
+      isModalOpen: false,
+      contests: []
     }
     this.toggleActiveTab = this.toggleActiveTab.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.goToContestProblems = this.goToContestProblems.bind(this);
   }
 
-  componentDidMount() {
-    this.getContests();
-  }
+  componentDidMount() { this.getContests(); }
+  toggleModal() { this.setState({ isModalOpen: !this.state.isModalOpen, activeTab: "1" }); }
   // Axios Async request for contest data
   getContests = async () => {
     try {
       const res = await axios.get(`http://104.211.91.225:5000/login`);
-      this.setState({contests: res.data});
+      this.setState({ contests: res.data });
     } catch (err) {
       console.log(err);
-      this.setState({ contests:[]});
+      this.setState({ contests: [] });
     }
   };
+  toggleActiveTab = (tab) => { if (this.state.activeTab !== tab) { this.setState({ activeTab: tab }); } };
 
-  toggleActiveTab = (tab) => {
-    if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab,
-      });
+  goToContestProblems = (contest_id) => {
+    if (auth.isAuthenticated()) {
+      // return <Redirect to={`/contests/${contest.contest_id}`}/>
+      alert("successfull");
+    }
+    else {
+      this.toggleModal();
     }
   }
   // Rendering Live contests
@@ -80,36 +91,37 @@ class Contests extends Component {
   ).map((contest) => {
     return (
       <div key={contest.contest_id} className="col-12 col-md-4 mt-5">
-        <RenderCards contest={contest} />
+        <RenderCards contest={contest} onClick={this.goToContestProblems}/>
       </div>
     );
   });
-
   // Rendering Upcoming contests
   upcomming = CONTESTS.filter((contest) =>
     (new Date(contest.start_time)).getTime() > (new Date()).getTime()
   ).map((contest) => {
     return (
       <div key={contest.contest_id} className="col-12 col-md-4 mt-5">
-        <RenderCards contest={contest} />
+        <RenderCards contest={contest} onClick={this.goToContestProblems}/>
       </div>
     );
   });
-
   // Rendering previous contests
   previous = CONTESTS.filter((contest) =>
     (new Date(contest.end_time)).getTime() < (new Date()).getTime()
   ).map((contest) => {
     return (
       <div key={contest.contest_id} className="col-12 col-md-4 mt-5">
-        <RenderCards contest={contest} />
+        <RenderCards contest={contest} onClick={this.goToContestProblems}/>
       </div>
     );
   });
+
+
   render() {
     return (
       <>
         <HeaderComponent />
+        <LoginModal toggleModal={this.toggleModal} isModalOpen={this.state.isModalOpen} />
         <div className="jumbotron" style={{ height: "300px" }}>
           <div className="container">
             <h1>Contests & <br /> Programming Challenges</h1>
