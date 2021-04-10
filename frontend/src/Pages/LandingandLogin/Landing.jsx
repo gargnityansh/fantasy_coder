@@ -4,10 +4,10 @@ import { Watch } from 'scrollmonitor-react';
 import '../../assets/css/style.css';
 import '../../assets/vendor/icofont/icofont.min.css';
 import { Link, animateScroll as scroll } from "react-scroll";
-import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse} from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse } from "reactstrap";
 import { Accordion, Button } from 'react-bootstrap';
 import LoginModal from "../../components/LoginModal";
-
+import { Redirect } from 'react-router-dom';
 export default Watch(
   class Landing extends Component {
     constructor(props) {
@@ -20,13 +20,13 @@ export default Watch(
       this.toggleNavbar = this.toggleNavbar.bind(this);
       this.scrollToTop = this.scrollToTop.bind(this);
       this.toggleModal = this.toggleModal.bind(this);
-      
+
     }
     toggleNavbar() { this.setState({ isNavOpen: !this.state.isNavOpen }); }
     toggleModal() { this.setState({ isModalOpen: !this.state.isModalOpen, activeTab: "1" }); }
     scrollToTop = () => { scroll.scrollToTop(); };
     componentDidMount() { this.aos = AOS; this.aos.init({ duration: 1000, once: true }); }
-    componentDidUpdate() { this.aos.refresh(); }    
+    componentDidUpdate() { this.aos.refresh(); }
 
     render() {
       return (
@@ -97,7 +97,7 @@ export default Watch(
             <LoginModal toggleModal={ this.toggleModal} isModalOpen={this.state.isModalOpen} />
           </header><br /><br />
           <section id="hero" className="text-dark">
-            <div className="container" >
+            <div className="container" data-aos="zoom-out" data-aos-delay="100">
               <div className="row">
                 <div className="col col-12 col-md-8">
                   <h1>Welcome to <span>Ozone</span>
@@ -115,11 +115,11 @@ export default Watch(
           </section>
           <main id="main">
             <section id="featured-services" className="featured-services section-bg">
-              <div className="container" data-aos="fade-up">
+              <div className="container" data-aos="zoom-in" data-aos-delay="300">
                 <div className="row d-flex justify-content-around">
                   <div className="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
                     <a href="">
-                      <div className="icon-box" data-aos={"fade-up"} data-aos-delay={"100"}>
+                      <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
                         <div className="icon"><i className="bx bx-file"></i></div>
                         <h4 className="title">Practice CP</h4>
                         <p className="description">Check out some practice problems to boost your competitive coding skills.</p>
@@ -127,8 +127,8 @@ export default Watch(
                     </a>
                   </div>
                   <div className="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <a href="">
-                      <div className="icon-box" data-aos="fade-up" data-aos-delay="200">
+                    <a href="" onClick={() => { <Redirect to="/contests" />}}>
+                      <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
                         <div className="icon"><i className="bx bx-world"></i></div>
                         <h4 className="title">Contests</h4>
                         <p className="description">Take a test of your coding skills to experience the real competition.</p>
@@ -161,7 +161,7 @@ export default Watch(
                     data-aos-delay="100">
                     <h3>With us you find a chance to explore the re-defined version of competitive coding.</h3>
                     <p className="font-italic">
-                      We provide you a chance to learn CP and earn coins through :-
+                    We provide you a chance to learn CP and earn coins through :-
                   </p>
                     <ul>
                       <li>
@@ -180,7 +180,7 @@ export default Watch(
                       </li>
                     </ul>
                     <p>
-                      Redeem your coins at our merchandise store to buy some exclusive goodies and avail some bumper discounts.
+                    Redeem your coins at our merchandise store to buy some exclusive goodies and avail some bumper discounts.
                   </p>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export default Watch(
                     <li>
                       <div>
                         <Accordion.Toggle as={Button} style={{ whiteSpace: "normal", textAlign: "left" }} variant="link" eventKey="0">
-                          Is this platform just for students?
+                        Is this platform just for students?
                       </Accordion.Toggle>
                       </div>
                       <Accordion.Collapse eventKey="0">
@@ -207,7 +207,7 @@ export default Watch(
                     <li>
                       <div>
                         <Accordion.Toggle as={Button} style={{ whiteSpace: "normal", textAlign: "left" }} variant="link" eventKey="1">
-                          How to earn coins through problems and contests?
+                        How to earn coins through problems and contests?
                         </Accordion.Toggle>
                       </div>
                       <Accordion.Collapse eventKey="1">
@@ -218,7 +218,7 @@ export default Watch(
                     <li>
                       <div>
                         <Accordion.Toggle as={Button} style={{ whiteSpace: "normal", textAlign: "left" }} variant="link" eventKey="2">
-                          How and where to redeem coins ?
+                        How and where to redeem coins ?
                         </Accordion.Toggle>
                       </div>
                       <Accordion.Collapse eventKey="2">
@@ -229,7 +229,7 @@ export default Watch(
                     <li>
                       <div>
                         <Accordion.Toggle as={Button} style={{ whiteSpace: "normal", textAlign: "left" }} variant="link" eventKey="3">
-                          Where can I find my collected coins?
+                        Where can I find my collected coins?
                         </Accordion.Toggle>
                       </div>
                       <Accordion.Collapse eventKey="3">
@@ -239,7 +239,7 @@ export default Watch(
                     <li>
                       <div>
                         <Accordion.Toggle as={Button} style={{ whiteSpace: "normal", textAlign: "left" }} variant="link" eventKey="4">
-                          Still didn’t answer your question?
+                        Still didn’t answer your question?
                         </Accordion.Toggle>
                       </div>
                       <Accordion.Collapse eventKey="4">
@@ -329,7 +329,7 @@ export default Watch(
                   <div className="col-lg-3 col-md-6 footer-contact">
                     <h2>O<span style={{ color: "#f0c017" }}>z</span>one</h2>
                     <p>
-                      A108 Adam Street <br />
+                    A108 Adam Street <br />
                     New York, NY 535022<br />
                     United States <br /><br />
                       <strong>Phone:</strong> +1 5589 55488 55<br />
@@ -368,7 +368,7 @@ export default Watch(
                             smooth={true}
                             offset={-70}
                             duration={500}>
-                            F.A.Q
+                          F.A.Q
                         </Link>
                         </a>
                       </li>
@@ -392,7 +392,7 @@ export default Watch(
             </section>
           </footer>
 
-        </div>
+        </div >
       );
     }
   });

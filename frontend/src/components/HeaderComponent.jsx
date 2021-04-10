@@ -20,7 +20,7 @@ function HeaderComponent(props) {
     return (
       <UncontrolledDropdown nav>
         <DropdownToggle nav caret className="text-white">
-          USERNAME
+          {auth.getUser()}
               </DropdownToggle>
         <DropdownMenu className="my-" right>
           <DropdownItem className="my-0 ml-0 pl-3">

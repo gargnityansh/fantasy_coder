@@ -6,6 +6,7 @@ import LoginModal from '../../components/LoginModal';
 import auth from "../../components/auth";
 import HeaderComponent from '../../components/HeaderComponent';
 import FooterComponent from '../../components/FooterComponent';
+import HeaderCarousel from '../../components/HeaderCarousel';
 const CONTESTS =
   [
     {
@@ -64,6 +65,7 @@ class Contests extends Component {
 
   componentDidMount() { this.getContests(); }
   toggleModal() { this.setState({ isModalOpen: !this.state.isModalOpen, activeTab: "1" }); }
+  
   // Axios Async request for contest data
   getContests = async () => {
     try {
@@ -125,6 +127,7 @@ class Contests extends Component {
         <div className="jumbotron" style={{ height: "300px" }}>
           <div className="container">
             <h1>Contests & <br /> Programming Challenges</h1>
+            <HeaderCarousel/>
           </div>
         </div>
         <div className="container">
@@ -143,7 +146,7 @@ class Contests extends Component {
                   <NavLink
                     className={this.state.activeTab == '2' ? 'active' : ''}
                     onClick={() => { this.toggleActiveTab('2'); }}>
-                    UPCOMMING
+                    UPCOMING
               </NavLink>
                 </NavItem>
                 <NavItem className="col-4 text-center px-0">

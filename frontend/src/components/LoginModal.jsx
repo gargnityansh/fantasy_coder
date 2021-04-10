@@ -104,6 +104,7 @@ class LoginModal extends Component {
         const res = await axios.post(`http://104.211.91.225:5000/login`, loginData);
         if (res.data.status === 200) {
           auth.login(() => {
+            auth.createUser(loginData.username);
             this.props.history.push("/contests");
             this.props.toggleModal();
           });
@@ -127,7 +128,9 @@ class LoginModal extends Component {
         const res = await axios.post(`http://104.211.91.225:5000/register`, signUpData);
         if (res.data.status === 200) {
           auth.login(() => {
+            auth.createUser(signUpData.username);
             this.props.history.push("/contests");
+            this.props.toggleModal();
           });
         }
         else {
