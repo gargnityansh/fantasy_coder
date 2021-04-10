@@ -7,7 +7,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse } from "reactstrap";
 import { Accordion, Button } from 'react-bootstrap';
 import LoginModal from "../../components/LoginModal";
-import { Redirect } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 export default Watch(
   class Landing extends Component {
     constructor(props) {
@@ -34,12 +34,12 @@ export default Watch(
           <header id="header" className="fixed-top">
             <div className="container d-flex align-items-center">
               <Navbar dark expand="md" style={{ width: "100%" }}>
-                <div className="container">
-                  <NavbarBrand className="mr-auto" href="/">
+                <div className="container" style={{cursor:"pointer"}}>
+                  <div className="mr-auto" href="/">
                     <h1 className="logo mr-auto">
                       <a className="nav-logo" onClick={this.scrollToTop}>O<span>z</span>one</a>
                     </h1>
-                  </NavbarBrand>
+                  </div>
                   <NavbarToggler onClick={this.toggleNavbar} className="ml-auto" />
                   <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar className="ml-auto d-flex align-items-center">
@@ -127,13 +127,13 @@ export default Watch(
                     </a>
                   </div>
                   <div className="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <a href="" onClick={() => { <Redirect to="/contests" />}}>
+                    <RouterLink to="/contests">
                       <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
                         <div className="icon"><i className="bx bx-world"></i></div>
                         <h4 className="title">Contests</h4>
                         <p className="description">Take a test of your coding skills to experience the real competition.</p>
                       </div>
-                    </a>
+                    </RouterLink>
                   </div>
                   <div className="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
                     <a href="">

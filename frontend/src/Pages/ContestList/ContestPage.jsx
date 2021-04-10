@@ -56,7 +56,7 @@ class Contests extends Component {
     this.state = {
       activeTab: '1',
       isModalOpen: false,
-      contests: []
+      contests: [],
     }
     this.toggleActiveTab = this.toggleActiveTab.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
