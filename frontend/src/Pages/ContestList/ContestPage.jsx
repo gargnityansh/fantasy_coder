@@ -12,8 +12,8 @@ const CONTESTS =
     {
       contest_id: 'C1',
       contest_name: 'Contest 1(Upcomming)',
-      start_time: '2021-05-05 15:00:00',
-      end_time: '2021-06-05 17:00:00',
+      start_time: "Fri, 30 Apr 2021 16:09:32 GMT",
+      end_time: "Fri, 30 Apr 2021 19:09:32 GMT",
       contest_img: '/assets/img/2842680.jpg'
     },
     {
@@ -32,6 +32,7 @@ const CONTESTS =
     }
   ];
 function RenderCards(props) {
+  const dateFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' });
   return (
     <div className="">
       <Card>
@@ -39,8 +40,9 @@ function RenderCards(props) {
           <CardImg top width="100%" src={props.contest.contest_img} alt="Card image cap" />
           <CardBody>
             <CardTitle tag="h5">{props.contest.contest_name}</CardTitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>Start Time: </b>{props.contest.start_time}</CardSubtitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>End Time   : </b>{props.contest.end_time}</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>Date: </b >{dateFormat.format(new Date(props.contest.start_time))}</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>Start Time: </b >{new Date(props.contest.start_time).toLocaleTimeString()}</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted"><b>End Time   : </b>{new Date(props.contest.end_time).toLocaleTimeString()}</CardSubtitle>
             <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
             <Button>Button</Button>
           </CardBody>
@@ -123,7 +125,9 @@ class Contests extends Component {
     return (
       <>
         <HeaderComponent />
+
         <LoginModal toggleModal={this.toggleModal} isModalOpen={this.state.isModalOpen} />
+        <div className="contests-page-wrapper">
         <div className="jumbotron" style={{ height: "300px" }}>
           <div className="container">
             <h1>Contests & <br /> Programming Challenges</h1>
@@ -176,6 +180,7 @@ class Contests extends Component {
               </TabPane>
             </TabContent>
           </div>
+        </div>
         </div>
         <FooterComponent />
       </>

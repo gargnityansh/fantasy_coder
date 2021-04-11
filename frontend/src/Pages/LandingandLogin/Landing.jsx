@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AOS from 'aos';
 import { Watch } from 'scrollmonitor-react';
-import '../../assets/css/style.css';
 import '../../assets/vendor/icofont/icofont.min.css';
 import { Link, animateScroll as scroll } from "react-scroll";
 import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem, Collapse } from "reactstrap";
