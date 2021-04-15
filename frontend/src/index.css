@@ -983,6 +983,53 @@ section {
   border-radius: 0px;
 }
 
+/* CONTEST PAGE CSS */
+
 .contest-page-wrapper {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+.contest-card-title {
+  color: #46535e;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contests-page-wrapper .nav-tabs {
+  border-bottom: 0px !important;
+  border-radius: 0px;
+}
+
+.nav-tab-link a {
+  color: #46535e;
+  /* font-weight: bold; */
+  border: 0px !important;
+  font-size: 22px;
+  background-color: rgb(240, 238, 238);
+  border-radius: 0px;
+}
+
+.nav-tab-link a.active {
+  color: #000;
+  background-color: #fff;
+}
+
+.contest-container {
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contest-container .tab-content {
+  background-color: #fff;
+}
+
+.contest-container .tab-content {
+  border-top: 2px solid #dee2e6;
+}
+
+@media screen and (max-width:768px) {
+  .contest-container {
+    border-radius: 0px;
+  }
 }
