@@ -52,7 +52,7 @@ function RenderCards(props) {
     </div>
   );
 }
-
+const Img64 = ({ data }) => { return (<img src={`data:image/jpeg;base64,${data}`} />); };
 class Contests extends Component {
   constructor(props) {
     super(props);
@@ -249,7 +249,9 @@ class Contests extends Component {
               <HeaderCarousel />
             </div>
           </div>
-          <br/>
+          <br />
+          <Img64 data="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"/>
+          <br/><br/>
           <div className="container contest-container px-0 mb-5">
             <div>
               <div className="d-flex justify-content-center">
@@ -258,21 +260,21 @@ class Contests extends Component {
                     <NavLink
                       className={this.state.activeTab == '1' ? 'active' : ''}
                       onClick={() => { this.toggleActiveTab('1'); }}>
-                      Live
+                        Live
                     </NavLink>
                   </NavItem>
                   <NavItem className="col-4 text-center px-0 nav-tab-link">
                     <NavLink
                       className={this.state.activeTab == '2' ? 'active' : ''}
                       onClick={() => { this.toggleActiveTab('2'); }}>
-                      Upcoming
+                        Upcoming
                     </NavLink>
                   </NavItem>
                   <NavItem className="col-4 text-center px-0 nav-tab-link">
                     <NavLink
                       className={this.state.activeTab == '3' ? 'active' : ''}
                       onClick={() => { this.toggleActiveTab('3'); }}>
-                      Previous
+                        Previous
                     </NavLink>
                   </NavItem>
                 </Nav>
