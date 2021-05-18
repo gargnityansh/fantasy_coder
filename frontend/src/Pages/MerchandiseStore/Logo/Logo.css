@@ -1,0 +1,38 @@
+/* .Logo {
+    color: #434141;
+    font-size: 32px !important;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.Logo:hover {
+    color: #434141;
+}
+
+.Logo span {
+    color: #c09a12;
+}
+
+.Logo img {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 576px) {
+    .Logo {
+        font-size: 24px !important;
+    }
+} */
+
+.Logo {
+    width: 165px;
+    height: 46px;
+    /* background-color: black; */
+}
+
+.Logo img {
+    height: 100%;
+    width: 100%;
+}
