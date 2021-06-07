@@ -4,6 +4,8 @@ import Contests from '../ContestList/ContestPage';
 import Problemlist from '../ProblemList/ProblemList';
 import auth from "../LandingandLogin/auth";
 import ProtectedRoute from '../LandingandLogin/ProtectedRoute';
+import HeaderComponent from '../../components/HeaderComponent';
+import FooterComponent from '../../components/FooterComponent';
 
 class MainPage extends Component {
   state = {}
@@ -11,29 +13,15 @@ class MainPage extends Component {
     const { path } = this.props.match;
     return (
       <>
-        <h1>Main Page after Login</h1>
-        <ul>
-          <li>
-            <Link to="/user/contests" className="text-dark link">Contests</Link>
-          </li>
-          <li>
-            <Link to="/user/problems" className="text-dark link">Problems</Link>
-          </li>
-        </ul>
-        <button onClick={() => {
-          auth.logout(() => {
-            this.props.history.push("/");
-          });
-        }}>
-          Logout
-        </button>
-          <hr />
-
+        <HeaderComponent/>
+        {/* <button onClick={() => {auth.logout(() => {this.props.history.push("/");});}}>Logout </button><hr /> */}
         <Switch>
-          <ProtectedRoute path="/user" exact component={Contests} />
-          <ProtectedRoute path="/user/contests" exact component={Contests} />
-          <ProtectedRoute path="/user/problems" exact component={Problemlist} />
+          {/* <ProtectedRoute path="/user" exact component={Contests} /> */}
+          <ProtectedRoute path="/contests" exact component={Contests} />
+          <ProtectedRoute path="/problems" exact component={Problemlist} />
+          <Redirect to="/contests" />
         </Switch>
+        <FooterComponent/>
       </>
     );
   }

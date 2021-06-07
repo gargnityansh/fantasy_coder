@@ -1,0 +1,32 @@
+a.nav-link.comp-nav, a.dropdown-toggle.nav-link {
+  font-size: 15px;
+  /* color: rgba(229, 231, 232, 0.75) !important; */
+  font-weight: 600;
+}
+
+a.nav-link.comp-nav:active {
+  color: white !important;
+}
+
+.dropdown .nav-link.comp-nav {
+  font-size: 12px !important;
+  color: grey !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+a.nav-link.comp-nav:hover {
+  cursor: pointer !important;
+}
+
+.font-head {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+}
+
+a.contest-card-link:hover{
+  cursor: pointer;
+}
